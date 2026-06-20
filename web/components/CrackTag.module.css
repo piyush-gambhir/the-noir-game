@@ -1,0 +1,31 @@
+.banner {
+  margin: 8px auto 24px;
+  max-width: 660px;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 28px;
+}
+
+.tag {
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  color: var(--crack-red);
+  border: 1px solid rgba(224, 92, 92, 0.4);
+  padding: 4px 10px;
+  border-radius: 2px;
+  background: rgba(224, 92, 92, 0.06);
+  animation: flickerRed 3s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+.desc {
+  font-size: 11px;
+  opacity: 0.55;
+  font-family: var(--font-sans);
+  font-style: italic;
+}

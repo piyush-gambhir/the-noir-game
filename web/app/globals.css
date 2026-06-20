@@ -1,0 +1,73 @@
+/* ──────────────────────────────────────────────
+   The Interrogation Room — global noir styles
+   ────────────────────────────────────────────── */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #080808;
+  --paper: #0e0d0b;
+  --ink: #d4c5a0;
+  --ink-bright: #e8dcc0;
+  --ink-dim: rgba(212, 197, 160, 0.4);
+  --ink-faint: rgba(212, 197, 160, 0.15);
+  --detective: #c8d8ee;
+  --detective-label: #6a9fd8;
+  --suspect-calm: #d4c5a0;
+  --suspect-defensive: #d6c08a;
+  --suspect-cracking: #e8c87a;
+  --suspect-breaking: #f4d676;
+  --crack-red: #e05c5c;
+
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: var(--font-sans);
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Hide LiveKit default chrome — we render our own UI */
+.lk-control-bar,
+.lk-participant-tile {
+  display: none !important;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@keyframes flickerRed {
+  0%, 90%, 100% { opacity: 1; }
+  92%, 98% { opacity: 0.3; }
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.4); }
+}

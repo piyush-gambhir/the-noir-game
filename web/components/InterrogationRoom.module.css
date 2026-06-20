@@ -1,0 +1,24 @@
+.room {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background:
+    radial-gradient(
+      ellipse 500px 300px at 50% 20%,
+      rgba(180, 140, 60, 0.06) 0%,
+      transparent 70%
+    ),
+    var(--bg);
+  padding-bottom: 60px;
+}
+
+.status {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-top: 20px;
+}
