@@ -59,3 +59,9 @@ cd web && npm run dev
 ```
 
 Open http://localhost:3000.
+
+## License
+
+The source code is available under the [MIT License](LICENSE). LiveKit,
+Deepgram, NVIDIA NIM, ElevenLabs, and their respective SDKs and services remain
+subject to their own terms and licenses.
