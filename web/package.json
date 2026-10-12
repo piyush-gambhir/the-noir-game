@@ -8,19 +8,19 @@
     "start": "next start"
   },
   "dependencies": {
-    "@livekit/components-react": "^2.9.20",
+    "@livekit/components-react": "^2.9.24",
     "@livekit/components-styles": "^1.2.0",
-    "livekit-client": "^2.18.7",
-    "motion": "^12.38.0",
-    "next": "16.3.3",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "livekit-client": "^2.22.4",
+    "motion": "^14.1.0",
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^24",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "babel-plugin-react-compiler": "1.0.0",
-    "typescript": "^5"
+    "typescript": "^7"
   }
 }
