@@ -5,25 +5,26 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "next typegen && node node_modules/typescript/bin/tsc --noEmit"
   },
   "dependencies": {
     "@livekit/components-react": "^2.9.24",
     "@livekit/components-styles": "^1.2.0",
-    "livekit-client": "^2.22.4",
-    "motion": "^14.1.1",
+    "livekit-client": "^2.23.0",
+    "motion": "^14.6.0",
     "next": "16.4.3",
     "react": "19.3.1",
     "react-dom": "19.3.1"
   },
   "devDependencies": {
-    "@types/node": "^24",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "babel-plugin-react-compiler": "1.0.0",
-    "typescript": "^7"
+    "typescript": "^7.0.2"
   },
   "engines": {
-    "node": ">=24.22.1 <25"
+    "node": ">=24.22.1 <25 || >=26.12.1 <27"
   }
 }
