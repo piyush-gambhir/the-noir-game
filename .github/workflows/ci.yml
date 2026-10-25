@@ -15,6 +15,9 @@ jobs:
     name: Web Build Check
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 10
+    strategy:
+      matrix:
+        node: ['24.22.1', '26.12.1']
     defaults:
       run:
         working-directory: web
@@ -23,10 +26,13 @@ jobs:
 
       - uses: actions/setup-node@v7
         with:
-          node-version: '24.22.1'
+          node-version: ${{ matrix.node }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
 
       - name: Next.js build
         run: npm run build
