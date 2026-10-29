@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "next typegen && node node_modules/typescript/bin/tsc --noEmit"
+    "typecheck": "next typegen && node node_modules/typescript/bin/tsc --noEmit",
+    "bundle:analyze": "next analyze --output",
+    "bundle:export": "next analyze export"
   },
   "dependencies": {
     "@livekit/components-react": "^2.9.24",
