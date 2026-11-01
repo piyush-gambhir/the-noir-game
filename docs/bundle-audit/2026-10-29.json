@@ -1,0 +1,329 @@
+{
+  "date": "2026-10-29",
+  "repository": "piyush-gambhir/the-noir-game",
+  "base": "main",
+  "base_sha": "d3681cd919c14ce1fde1b5abf6b73ca4c199adf6",
+  "mode": "audit",
+  "publication_blocker": null,
+  "apps": [
+    {
+      "path": "web",
+      "declared_next": "16.4.3",
+      "installed_next": "16.4.3",
+      "snapshot": "audit-20261029-baseline",
+      "graph_sha256": "ea5416c0663fb42d152b04b73379729a43d007e69bb6011b5963ededb5747875",
+      "error": null,
+      "analysis": {
+        "meta": {
+          "type": "meta",
+          "schema_version": 1,
+          "snapshot_name": "audit-20261029-baseline",
+          "module_index_hash": "1765834a2f3e4704",
+          "route_count": 5,
+          "selected_routes": 5
+        },
+        "record_counts": {
+          "meta": 1,
+          "module": 1673,
+          "route": 5,
+          "output": 687,
+          "part": 3181,
+          "group": 50
+        },
+        "metric": "Sum of attributed compressed bytes for JavaScript outputs with [client-fs] provenance; includes deferred outputs and is not measured transfer or initial-load size.",
+        "unique_client_js_compressed_attribution": 444615,
+        "route_stats": [
+          {
+            "route": "/room",
+            "client_js_compressed_attribution": 438940,
+            "bootstrap_js_compressed_attribution": 164076,
+            "client_js_files": 9,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact"
+          },
+          {
+            "route": "/room/ending",
+            "client_js_compressed_attribution": 213910,
+            "bootstrap_js_compressed_attribution": 164076,
+            "client_js_files": 8,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact"
+          },
+          {
+            "route": "/",
+            "client_js_compressed_attribution": 211839,
+            "bootstrap_js_compressed_attribution": 164076,
+            "client_js_files": 8,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact"
+          },
+          {
+            "route": "/_not-found",
+            "client_js_compressed_attribution": 210037,
+            "bootstrap_js_compressed_attribution": 164076,
+            "client_js_files": 7,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact"
+          },
+          {
+            "route": "/favicon.ico",
+            "client_js_compressed_attribution": 0,
+            "bootstrap_js_compressed_attribution": 0,
+            "client_js_files": 0,
+            "entries_coverage": "exact",
+            "groups_coverage": "exact"
+          }
+        ],
+        "top_sources": [
+          {
+            "source": "node_modules/livekit-client/dist/livekit-client.esm.mjs",
+            "compressed_attribution": 142329,
+            "routes": ["/room"]
+          },
+          {
+            "source": "node_modules/next/dist/compiled/react-dom/cjs/react-dom-client.production.js",
+            "compressed_attribution": 63928,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/next/dist/build/polyfills/polyfill-nomodule.js",
+            "compressed_attribution": 39434,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/@livekit/components-react/dist/room-Bfb4OWAI.mjs",
+            "compressed_attribution": 14077,
+            "routes": ["/room"]
+          },
+          {
+            "source": "node_modules/next/dist/compiled/react-server-dom-turbopack/cjs/react-server-dom-turbopack-client.browser.production.js",
+            "compressed_attribution": 7782,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/motion-dom/dist/es/projection/node/create-projection-node.mjs",
+            "compressed_attribution": 6443,
+            "routes": ["/room"]
+          },
+          {
+            "source": "node_modules/next/dist/client/components/segment-cache/cache.js",
+            "compressed_attribution": 6402,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/next/dist/client/components/render-tree.js",
+            "compressed_attribution": 3998,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/next/dist/client/components/segment-cache/scheduler.js",
+            "compressed_attribution": 3963,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/motion-dom/dist/es/animation/waapi/transforms/TransformAnimation.mjs",
+            "compressed_attribution": 3547,
+            "routes": ["/room"]
+          },
+          {
+            "source": "node_modules/next/dist/compiled/react/cjs/react.production.js",
+            "compressed_attribution": 2969,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/@livekit/components-react/dist/prefabs-BEB1UEnC.mjs",
+            "compressed_attribution": 2800,
+            "routes": ["/room"]
+          },
+          {
+            "source": "node_modules/motion-dom/dist/es/gestures/drag/VisualElementDragControls.mjs",
+            "compressed_attribution": 2498,
+            "routes": ["/room"]
+          },
+          {
+            "source": "node_modules/next/dist/lib/constants.js",
+            "compressed_attribution": 2299,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/next/dist/client/components/router-reducer/reducers/server-action-reducer.js",
+            "compressed_attribution": 2176,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/motion-dom/dist/es/render/VisualElement.mjs",
+            "compressed_attribution": 2174,
+            "routes": ["/room"]
+          },
+          {
+            "source": "[turbopack]/shared/runtime/runtime-utils.ts",
+            "compressed_attribution": 2156,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/next/dist/client/components/app-router.js",
+            "compressed_attribution": 2113,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/next/dist/client/components/layout-router.js",
+            "compressed_attribution": 2009,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          },
+          {
+            "source": "node_modules/next/dist/client/components/segment-cache/optimistic-routes.js",
+            "compressed_attribution": 1968,
+            "routes": ["/", "/_not-found", "/room", "/room/ending"]
+          }
+        ],
+        "top_packages": [
+          ["next", 209314],
+          ["livekit-client", 142329],
+          ["motion-dom", 51404],
+          ["@livekit/components-react", 17206],
+          ["framer-motion", 11553],
+          ["(application)", 11076],
+          ["motion-utils", 1332],
+          ["@swc/helpers", 396],
+          ["motion", 5]
+        ],
+        "duplicate_browser_versions": {},
+        "graph": {
+          "emitted_members": 174,
+          "sync_edges": 533,
+          "async_edges": 0,
+          "communities": 12,
+          "parameters": "NetworkX Louvain, resolution=1, weight=1 per distinct directed edge/kind before symmetrization, seed=0; seed=1 stability comparison.",
+          "stable_partition_across_seeds": false,
+          "ranked_communities": [
+            {
+              "community": 6,
+              "modules": 33,
+              "unambiguous_compressed_attribution": 86256,
+              "largest_packages": [["next", 86256]]
+            },
+            {
+              "community": 2,
+              "modules": 45,
+              "unambiguous_compressed_attribution": 45739,
+              "largest_packages": [["next", 45739]]
+            },
+            {
+              "community": 5,
+              "modules": 48,
+              "unambiguous_compressed_attribution": 21749,
+              "largest_packages": [
+                ["next", 18927],
+                ["(application)", 2426],
+                ["@swc/helpers", 396]
+              ]
+            },
+            {
+              "community": 3,
+              "modules": 19,
+              "unambiguous_compressed_attribution": 11118,
+              "largest_packages": [["next", 11118]]
+            },
+            {
+              "community": 4,
+              "modules": 14,
+              "unambiguous_compressed_attribution": 5017,
+              "largest_packages": [["next", 5017]]
+            },
+            {
+              "community": 8,
+              "modules": 7,
+              "unambiguous_compressed_attribution": 1576,
+              "largest_packages": [["next", 1576]]
+            },
+            {
+              "community": 0,
+              "modules": 3,
+              "unambiguous_compressed_attribution": 1247,
+              "largest_packages": [["next", 1247]]
+            }
+          ],
+          "unmapped_or_ambiguous_compressed_attribution": 271913
+        },
+        "candidates": [
+          {
+            "package": "livekit-client",
+            "unique_compressed_attribution": 142329,
+            "route": null,
+            "roots": [],
+            "targets": [],
+            "missing_roots": 0,
+            "status": "attribution-only investigation; exact emitted identity membership is unavailable",
+            "cut": [],
+            "cut_status": "A directed cut cannot be established for this attributed contributor because no exact emitted module membership joins to it."
+          },
+          {
+            "package": "motion-dom",
+            "unique_compressed_attribution": 51404,
+            "route": null,
+            "roots": [],
+            "targets": [],
+            "missing_roots": 0,
+            "status": "attribution-only investigation; exact emitted identity membership is unavailable",
+            "cut": [],
+            "cut_status": "A directed cut cannot be established for this attributed contributor because no exact emitted module membership joins to it."
+          },
+          {
+            "package": "@livekit/components-react",
+            "unique_compressed_attribution": 17206,
+            "route": null,
+            "roots": [],
+            "targets": [],
+            "missing_roots": 0,
+            "status": "attribution-only investigation; exact emitted identity membership is unavailable",
+            "cut": [],
+            "cut_status": "A directed cut cannot be established for this attributed contributor because no exact emitted module membership joins to it."
+          },
+          {
+            "package": "framer-motion",
+            "unique_compressed_attribution": 11553,
+            "route": null,
+            "roots": [],
+            "targets": [],
+            "missing_roots": 0,
+            "status": "attribution-only investigation; exact emitted identity membership is unavailable",
+            "cut": [],
+            "cut_status": "A directed cut cannot be established for this attributed contributor because no exact emitted module membership joins to it."
+          }
+        ],
+        "client_dependency_scan": [],
+        "possible_server_only_leaks": [],
+        "suppressed_matches": [],
+        "coverage": {
+          "unsupported_client_js_outputs": [],
+          "unknown_route_entries": [],
+          "unknown_route_groups": [],
+          "groups_without_joined_trigger": 0,
+          "sync_dependencies_absent_from_emitted_subgraph": 8,
+          "attribution_conflicts": 0,
+          "action_like_identities_requiring_source_mapping": 2,
+          "limits": [
+            "All minimum cuts are provisional; optionality, module side effects and actual mount/preload timing have not been behavior-tested.",
+            "Source-to-output attribution is distinct from exact module identity; ambiguous community bytes are excluded from community ranking.",
+            "No production browser requests, cold-navigation timing, interaction timing, Web Vitals or emitted implementation contents were inspected.",
+            "Potential Server Action stubs and ownership matches remain unverified until source-to-reference mapping and emitted contents are inspected."
+          ]
+        }
+      }
+    }
+  ],
+  "verification": [
+    {
+      "app": "web",
+      "command": "pnpm run typecheck",
+      "exit_code": 0,
+      "seconds": 0.8
+    },
+    {
+      "app": "(repository)",
+      "command": "git diff --check",
+      "exit_code": 0,
+      "seconds": 0.0
+    }
+  ]
+}

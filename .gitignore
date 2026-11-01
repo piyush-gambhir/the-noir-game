@@ -30,3 +30,6 @@ build/
 
 # LiveKit Agents cache
 .cache/
+
+# Local bundle graph exports
+/.bundle-analysis/
