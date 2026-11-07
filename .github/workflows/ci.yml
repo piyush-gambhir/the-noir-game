@@ -51,6 +51,13 @@ jobs:
         with:
           python-version: "3.14"
 
+      - name: Install agent dependencies
+        run: python -m pip install -r livekit-agents/requirements.txt
+
+      - name: Check agent imports
+        working-directory: livekit-agents
+        run: python -c "import agent"
+
       - name: Python compile check
         run: |
           python -m py_compile $(find backend livekit-agents -name "*.py" 2>/dev/null)
