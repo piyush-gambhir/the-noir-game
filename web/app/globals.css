@@ -1,6 +1,6 @@
-/* ──────────────────────────────────────────────
-   The Interrogation Room — global noir styles
-   ────────────────────────────────────────────── */
+
+
+
 
 * {
   margin: 0;
@@ -46,7 +46,7 @@ a {
   text-decoration: none;
 }
 
-/* Hide LiveKit default chrome — we render our own UI */
+
 .lk-control-bar,
 .lk-participant-tile {
   display: none !important;

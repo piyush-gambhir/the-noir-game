@@ -17,7 +17,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from livekit import api
 from pydantic import BaseModel
 
-# Load .env from repo root (one dir up from backend/)
+
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
@@ -25,7 +25,7 @@ LIVEKIT_URL = os.environ.get("LIVEKIT_URL", "")
 LIVEKIT_API_KEY = os.environ.get("LIVEKIT_API_KEY", "")
 LIVEKIT_API_SECRET = os.environ.get("LIVEKIT_API_SECRET", "")
 
-AGENT_NAME = "suspect"  # must match @server.rtc_session(agent_name=...) in agent.py
+AGENT_NAME = "suspect"
 
 app = FastAPI(title="The Interrogation Room")
 
@@ -37,7 +37,7 @@ app.add_middleware(
 )
 
 
-# ── Case file (v1: Victor Crane) ────────────────────────────────────────────
+
 
 CASE = {
     "id": "halbrook",
@@ -63,7 +63,7 @@ async def get_case() -> dict:
     return CASE
 
 
-# ── Token endpoint ──────────────────────────────────────────────────────────
+
 
 
 class TokenRequest(BaseModel):

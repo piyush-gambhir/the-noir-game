@@ -28,7 +28,7 @@ export default function InterrogationRoom() {
   const { state, agentTranscriptions, agentAttributes } = useVoiceAssistant();
   const { localParticipant } = useLocalParticipant();
 
-  // Microphone track for the detective's transcription
+
   const micTrackRef = useMemo(() => {
     const pub = localParticipant?.getTrackPublication(Track.Source.Microphone);
     if (!pub) return undefined;
@@ -41,13 +41,13 @@ export default function InterrogationRoom() {
 
   const { segments: detectiveSegments } = useTrackTranscription(micTrackRef);
 
-  // Decoded suspect signal from agent attributes
+
   const signal: SuspectSignal = useMemo(
     () => readSignal((agentAttributes as Record<string, string>) || {}),
     [agentAttributes]
   );
 
-  // Track the latest contradiction-caught flag → flash crack tag for 4s
+
   const [crackVisible, setCrackVisible] = useState(false);
   const [crackTopic, setCrackTopic] = useState<string | null>(null);
   const lastTurnIdRef = useRef<string>("");
@@ -64,19 +64,19 @@ export default function InterrogationRoom() {
     }
   }, [signal.contradiction_caught, signal.turn_id, signal.contradiction_topic]);
 
-  // Ending → navigate
+
   useEffect(() => {
     if (signal.ending) {
       const timer = setTimeout(() => {
         router.push(
           `/room/ending?type=${signal.ending}&caught=${signal.contradictions_caught_count}`
         );
-      }, 3500); // let the final line finish playing
+      }, 3500);
       return () => clearTimeout(timer);
     }
   }, [signal.ending, signal.contradictions_caught_count, router]);
 
-  // Build the transcript by interleaving detective and suspect segments by timestamp
+
   const lines = useMemo<TranscriptLine[]>(() => {
     type Seg = { id: string; ts: number; speaker: "detective" | "suspect"; text: string; final: boolean };
     const det: Seg[] = (detectiveSegments || []).map((s) => ({
@@ -103,7 +103,7 @@ export default function InterrogationRoom() {
     }));
   }, [detectiveSegments, agentTranscriptions, signal.state]);
 
-  // Speaking indicator
+
   const speaker: "detective" | "suspect" | null =
     state === "speaking"
       ? "suspect"
@@ -111,7 +111,7 @@ export default function InterrogationRoom() {
       ? "detective"
       : null;
 
-  // Elapsed time
+
   const startMsRef = useRef<number>(Date.now());
   const [elapsed, setElapsed] = useState("00:00");
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function InterrogationRoom() {
     return () => clearInterval(i);
   }, []);
 
-  // Connection status messages
+
   let statusMessage: string | null = null;
   if (state === "connecting") statusMessage = "Connecting…";
   else if (state === "initializing") statusMessage = "He's coming in…";

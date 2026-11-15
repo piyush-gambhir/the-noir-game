@@ -23,14 +23,14 @@ from livekit.plugins.turn_detector.multilingual import MultilingualModel
 from signal_protocol import ParsedTurn, attributes_for, parse_turn, voice_settings_for
 from suspect import SuspectSession, build_system_prompt
 
-# Load .env from repo root (one dir up)
+
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
 logger = logging.getLogger("interrogation-room")
 logging.basicConfig(level=logging.INFO)
 
-AGENT_NAME = "suspect"  # must match backend's RoomAgentDispatch(agent_name=...)
+AGENT_NAME = "suspect"
 
 NVIDIA_NIM_API_KEY = os.environ.get("NVIDIA_NIM_API_KEY", "")
 NVIDIA_NIM_BASE_URL = os.environ.get("NVIDIA_NIM_BASE_URL", "https://integrate.api.nvidia.com/v1")
@@ -44,7 +44,7 @@ async def entrypoint(ctx: JobContext) -> None:
     """One interrogation session."""
     suspect = SuspectSession()
 
-    # ── LLM: Kimi K2.5 via NVIDIA NIM (OpenAI-compatible) ───────────────────
+
     llm = lk_openai.LLM(
         model=NVIDIA_NIM_MODEL,
         base_url=NVIDIA_NIM_BASE_URL,
@@ -52,10 +52,10 @@ async def entrypoint(ctx: JobContext) -> None:
         temperature=0.85,
     )
 
-    # ── STT: Deepgram nova-3 ────────────────────────────────────────────────
+
     stt = deepgram.STT(model="nova-3", language="multi")
 
-    # ── TTS: ElevenLabs (voice settings update dynamically per state) ───────
+
     tts = elevenlabs.TTS(
         voice_id=ELEVENLABS_VOICE_ID,
         model=ELEVENLABS_MODEL,
@@ -70,13 +70,13 @@ async def entrypoint(ctx: JobContext) -> None:
         turn_detection=MultilingualModel(),
     )
 
-    # ── Hook: intercept LLM output to split structured JSON ─────────────────
+
     @session.on("conversation_item_added")
     def on_item(ev):
         item = ev.item
         if item.role != "assistant":
             return
-        # Schedule async work in the running loop
+
         asyncio.create_task(_handle_assistant_turn(item, suspect, session, ctx))
 
     await ctx.connect()
@@ -89,7 +89,7 @@ async def entrypoint(ctx: JobContext) -> None:
         ),
     )
 
-    # Kick off with the suspect's opening line.
+
     await session.generate_reply(
         instructions=(
             "The detective has just sat down across from you. Greet them briefly "
@@ -113,23 +113,23 @@ async def _handle_assistant_turn(
     if parsed.contradiction_topic:
         suspect.contradictions_caught.add(parsed.contradiction_topic)
 
-    # Replace the chat-history text with the spoken-only portion so future
-    # LLM context doesn't drift on its own JSON wrapper.
+
+
     item.text_content = parsed.speech
 
-    # Voice tone shift on state transition.
+
     if parsed.state != suspect.current_state:
         new_settings = voice_settings_for(parsed.state)
         try:
             session.tts.update_options(
                 voice_settings=elevenlabs.VoiceSettings(**new_settings),
             )
-        except Exception as exc:  # plugin may not expose update_options on all versions
+        except Exception as exc:
             logger.warning("could not update TTS voice_settings live: %s", exc)
         suspect.current_state = parsed.state
         logger.info("state shift: %s (stress %.2f)", parsed.state, parsed.stress_level)
 
-    # Forward to room as participant attributes for the frontend.
+
     attrs = attributes_for(parsed)
     attrs["turn_id"] = str(suspect.turn_count)
     attrs["contradictions_caught_count"] = str(len(suspect.contradictions_caught))

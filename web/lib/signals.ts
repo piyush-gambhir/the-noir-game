@@ -1,5 +1,5 @@
-/* Frontend mirror of the agent's signal_protocol.py — what we read off
-   the suspect participant's attributes after each LLM turn. */
+
+
 
 export type SuspectState = "calm" | "defensive" | "cracking" | "breaking";
 export type Ending = "confession" | "lawyer_up" | null;

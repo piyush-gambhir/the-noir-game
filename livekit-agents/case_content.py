@@ -13,7 +13,7 @@ class PlantedLie:
     truth: str
     cover_story: str
     tells: list[str]
-    crack_trigger: str  # what the detective has to say/imply for it to crack
+    crack_trigger: str
 
 
 @dataclass(frozen=True)
@@ -112,7 +112,7 @@ VICTOR_CRANE = Case(
 )
 
 
-# Public case file (what player sees BEFORE interrogation — no spoilers).
+
 PUBLIC_CASE_FILE = {
     "id": VICTOR_CRANE.id,
     "title": VICTOR_CRANE.title,
