@@ -6,7 +6,7 @@ import { fetchCase, type CaseFile as CaseFileType } from "@/lib/api";
 import styles from "./CaseFile.module.css";
 
 function renderInline(text: string) {
-  // Render **bold** segments
+
   const parts = text.split(/(\*\*[^*]+\*\*)/g);
   return parts.map((p, i) =>
     p.startsWith("**") && p.endsWith("**") ? (
